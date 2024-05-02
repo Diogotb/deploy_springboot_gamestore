@@ -22,7 +22,7 @@ FROM openjdk:17-jdk-slim
 EXPOSE 8080
 
 # Copie o arquivo JAR da etapa de compilação para o contêiner de execução
-COPY --from=build /app/target/gamestore.jar app.jar
+COPY --from=build /app/target/gamestore-1.0.0.jar app.jar
 
 # Defina o comando de inicialização da aplicação
 ENTRYPOINT ["java", "-jar", "app.jar"]
