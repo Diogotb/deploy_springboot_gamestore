@@ -3,8 +3,7 @@ FROM ubuntu:latest AS build
 
 # Instale o OpenJDK 17
 RUN apt-get update && \
-    apt-get install -y openjdk-17-jdk && \
-    apt-get install -y maven
+    apt-get install -y openjdk-17-jdk maven
 
 # Definindo o diretório de trabalho
 WORKDIR /app
@@ -22,7 +21,7 @@ FROM openjdk:17-jdk-slim
 EXPOSE 8080
 
 # Copie o arquivo JAR da etapa de compilação para o contêiner de execução
-COPY --from=build /app/target/gamestore-1.0.0.jar app.jar
+COPY --from=build /app/target/gamestore.jar app.jar
 
 # Defina o comando de inicialização da aplicação
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/target/gamestore.jar"]
