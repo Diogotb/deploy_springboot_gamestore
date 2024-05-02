@@ -3,14 +3,14 @@ FROM ubuntu:latest AS build
 
 # Instale o OpenJDK 17
 RUN apt-get update
-RUN apt-get install -y openjdk-17-jdk
-# RUN apt-get install -y maven
+RUN apt-get install openjdk-17-jdk -y
+RUN apt-get install maven -y 
 
 # Copie o código-fonte para o contêiner
 COPY . .
 
 # Compile o projeto com Maven
-# RUN mvn clean install
+RUN mvn clean install
 
 # Estágio de execução
 FROM openjdk:17-jdk-slim
