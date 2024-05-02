@@ -22,4 +22,4 @@ EXPOSE 8080
 # COPY --from=build /app/target/gamestore.jar app.jar
 
 # Defina o comando de inicialização da aplicação
-ENTRYPOINT ["java", "-jar", "/target/gamestore.jar"]
+ENTRYPOINT ["java", "-jar", "/target/gamestore-1.0.0.jar"]
